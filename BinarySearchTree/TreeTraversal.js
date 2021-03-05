@@ -103,6 +103,20 @@ class BST {
 		traverse(current)
 		return visited
 	}
+
+	dfsInOrder() {
+		let visited = [],
+			current = this.root
+
+		const traverse = (node) => {
+			if (node.left) traverse(node.left)
+			visited.push(node.value)
+			if (node.right) traverse(node.right)
+		}
+
+		traverse(current)
+		return visited
+	}
 }
 
 // Create a new instance of BST class
@@ -125,3 +139,6 @@ console.log(tree.dfsPreOrder())
 
 // DFS PostOrder
 console.log(tree.dfsPostOrder())
+
+// DFS InOrder
+console.log(tree.dfsInOrder())
