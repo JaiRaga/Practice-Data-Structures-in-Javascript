@@ -57,7 +57,7 @@ class BST {
 		}
 	}
 
-	BreadthFirstSearch() {
+	breadthFirstSearch() {
 		let queue = [],
 			done = [],
 			current = null
@@ -72,6 +72,21 @@ class BST {
 		}
 
 		return done
+	}
+
+	dfsPreOrder() {
+		let visited = [],
+			current = this.root
+
+		const traverse = (node) => {
+			visited.push(node.value)
+
+			if (node.left) traverse(node.left)
+			if (node.right) traverse(node.right)
+		}
+
+		traverse(current)
+		return visited
 	}
 }
 
@@ -88,4 +103,7 @@ console.log(tree.insert(12))
 console.log(tree.insert(18))
 
 // BFS
-console.log(tree.BreadthFirstSearch())
+console.log(tree.breadthFirstSearch())
+
+// DFS
+console.log(tree.dfsPreOrder())
