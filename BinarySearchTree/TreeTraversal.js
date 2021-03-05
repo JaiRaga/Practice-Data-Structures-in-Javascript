@@ -88,6 +88,21 @@ class BST {
 		traverse(current)
 		return visited
 	}
+
+	dfsPostOrder() {
+		let visited = [],
+			current = this.root
+
+		const traverse = (node) => {
+			if (node.left) traverse(node.left)
+			if (node.right) traverse(node.right)
+
+			visited.push(node.value)
+		}
+
+		traverse(current)
+		return visited
+	}
 }
 
 // Create a new instance of BST class
@@ -105,5 +120,8 @@ console.log(tree.insert(18))
 // BFS
 console.log(tree.breadthFirstSearch())
 
-// DFS
+// DFS PreOrder
 console.log(tree.dfsPreOrder())
+
+// DFS PostOrder
+console.log(tree.dfsPostOrder())
