@@ -41,6 +41,22 @@ class HashTable {
 			}
 		}
 	}
+
+	keys() {
+		let arr = []
+
+		this.keyMap.forEach((val) => {
+			if (val.length) {
+				for (let i of val) {
+					if (!arr.includes(i[0])) {
+						arr.push(i[0])
+					}
+				}
+			}
+		})
+
+		return arr
+	}
 }
 
 let ht = new HashTable()
@@ -48,7 +64,13 @@ console.log(ht)
 console.log(ht._hash('red'))
 console.log(ht.set('red', 01))
 console.log(ht.set('blue', 05))
+console.log(ht.set('blue', 06))
+console.log(ht.set('blue', 07))
+console.log(ht.set('red', 05))
+console.log(ht.set('yellow', 05))
 console.log(ht.get('red'))
 console.log(ht.get('blue'))
 console.log(ht.get(''))
 console.log(ht._hash('red'))
+
+console.log(ht.keys())
