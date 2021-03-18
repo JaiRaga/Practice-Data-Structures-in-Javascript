@@ -55,7 +55,7 @@ class HashTable {
 			}
 		})
 
-		return arr
+		return arr.length === 0 ? 'No keys found' : arr
 	}
 
 	values() {
@@ -70,23 +70,23 @@ class HashTable {
 				}
 			}
 		})
-		return arr
+		return arr.length === 0 ? 'No values found' : arr
 	}
 }
 
 let ht = new HashTable()
 console.log(ht)
-console.log(ht._hash('red'))
-console.log(ht.set('red', 01))
-console.log(ht.set('blue', 05))
-console.log(ht.set('blue', 06))
-console.log(ht.set('blue', 07))
-console.log(ht.set('red', 05))
-console.log(ht.set('yellow', 05))
-console.log(ht.get('red'))
-console.log(ht.get('blue'))
-console.log(ht.get(''))
-console.log(ht._hash('red'))
+// console.log(ht._hash('red'))
+// console.log(ht.set('red', 01))
+// console.log(ht.set('blue', 05))
+// console.log(ht.set('blue', 06))
+// console.log(ht.set('blue', 07))
+// console.log(ht.set('red', 05))
+// console.log(ht.set('yellow', 05))
+// console.log(ht.get('red'))
+// console.log(ht.get('blue'))
+// console.log(ht.get(''))
+// console.log(ht._hash('red'))
 
 console.log(ht.keys())
 console.log(ht.values())
