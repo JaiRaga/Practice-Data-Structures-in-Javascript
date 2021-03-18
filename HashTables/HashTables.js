@@ -57,6 +57,21 @@ class HashTable {
 
 		return arr
 	}
+
+	values() {
+		let arr = []
+
+		this.keyMap.forEach((val) => {
+			if (val.length) {
+				for (let i of val) {
+					if (!arr.includes(i[1])) {
+						arr.push(i[1])
+					}
+				}
+			}
+		})
+		return arr
+	}
 }
 
 let ht = new HashTable()
@@ -74,3 +89,4 @@ console.log(ht.get(''))
 console.log(ht._hash('red'))
 
 console.log(ht.keys())
+console.log(ht.values())
