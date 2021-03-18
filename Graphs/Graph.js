@@ -33,18 +33,40 @@ class Graph {
 
 		return this
 	}
+
+	removeVertex(vertex) {
+		if (!Object.keys(this.adjacencyList).includes(vertex)) return false
+		let adjacentVertex = ''
+
+		console.log(this.adjacencyList[vertex].length)
+		while (this.adjacencyList[vertex].length) {
+			adjacentVertex = this.adjacencyList[vertex].pop()
+			this.adjacencyList[adjacentVertex] = this.adjacencyList[
+				adjacentVertex
+			].filter((v) => v !== vertex)
+		}
+
+		delete this.adjacencyList[vertex]
+		return this
+	}
 }
 
 const g = new Graph()
 console.log(g)
 console.log(g.addVertex('Tokyo'))
-console.log(g.adjacencyList['Tokyo'].push('Japan'))
 console.log(g.addVertex('Tokyo'))
 
 console.log(g.addEdge('Tokyo', 'Houston'))
+console.log(g.addEdge('Tokyo', 'Japan'))
+console.log(g.addEdge('Tokyo', 'Housto'))
+console.log(g.addEdge('Tokyo', 'Houst'))
+console.log(g.addEdge('Tokyo', 'Hous'))
 console.log(g.addEdge('Chennai', 'New York'))
 
 console.log(g.removeEdge('Tokyo', 'Houston'))
 console.log(g.removeEdge('tokyo', 'Houston'))
+
+console.log(g.removeVertex('Tokyo'))
+console.log(g.removeVertex('FFGFG'))
 
 console.log(g.adjacencyList.Chennai)
