@@ -21,6 +21,18 @@ class Graph {
 
 		return this
 	}
+
+	removeEdge(v1, v2) {
+		if (!Object.keys(this.adjacencyList).includes(v1)) return false
+
+		let ind1 = this.adjacencyList[v1].indexOf(v2)
+		this.adjacencyList[v1].splice(ind1, 1)
+
+		let ind2 = this.adjacencyList[v2].indexOf(v1)
+		this.adjacencyList[v2].splice(ind2, 1)
+
+		return this
+	}
 }
 
 const g = new Graph()
@@ -32,4 +44,7 @@ console.log(g.addVertex('Tokyo'))
 console.log(g.addEdge('Tokyo', 'Houston'))
 console.log(g.addEdge('Chennai', 'New York'))
 
-console.log(g)
+console.log(g.removeEdge('Tokyo', 'Houston'))
+console.log(g.removeEdge('tokyo', 'Houston'))
+
+console.log(g.adjacencyList.Chennai)
